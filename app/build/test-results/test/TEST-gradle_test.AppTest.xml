@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="gradle_test.AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-07T19:36:12" hostname="Aydans-MacBook-Air.local" time="0.01">
-  <properties/>
-  <testcase name="stringsAreEqual" classname="gradle_test.AppTest" time="0.01"/>
-  <system-out><![CDATA[the first word is longer than the second word
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

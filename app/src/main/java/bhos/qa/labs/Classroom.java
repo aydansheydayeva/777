@@ -76,10 +76,3 @@ public class Classroom {
         System.out.println(class1.getClassWithYear());
     }
 }
-
-// class name, 
-// student count, 
-// entrance year, 
-// uni years, 
-// average class score, 
-// lesson count

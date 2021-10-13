@@ -10,6 +10,7 @@ public class AppTest {
     @Test 
     public void stringsAreEqual() {
         CompareStrings toTest = new CompareStrings();
-        System.out.println(toTest.compare("first456456_to_test_1","second_to_test_2"));
+        //System.out.println(toTest.compare("first456456_to_test_1","second_to_test_2"));
+        assertEquals("the first word is longer than the second word", toTest.compare("first456456_to_test_1","second_to_test_2"));   
     }
 }

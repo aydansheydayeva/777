@@ -26,5 +26,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'bhos.qa.labs.App'
+    mainClass = 'bhos.qa.labs.Classroom'
 }

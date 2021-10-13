@@ -6,9 +6,33 @@ package bhos.qa.labs;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+
 public class AppTest {
-    @Test public void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+
+    Classroom class1 = new Classroom("IT", 25, 2018, 5, "B", 11);
+
+    @Test
+    public void test1() {
+        assertEquals(11, class1.get2SemesterLessonCount());
+    }
+
+    @Test
+    public void test2() {
+        assertEquals(2023, class1.getGraduationDate());
+    }
+
+    @Test
+    public void test3() {
+        assertEquals(55, class1.getAllYearLessonCount());
+    }
+
+    @Test
+    public void test4() {
+        class1.CountNewStudentNumber(3);
+        assertEquals(22, class1.getStudentCount());
+    }
+    @Test
+    public void test5() {
+        assertEquals("IT - 2018", class1.getClassWithYear());
     }
 }

@@ -58,12 +58,6 @@ public class Classroom {
     }
 
     public String getClassWithYear(){
-        boolean check = true;
-        if (check){
-            System.out.println("true");
-        }else{
-            System.out.println("false");
-        }
         return this.name + " - " + this.enter_year;
     }
 

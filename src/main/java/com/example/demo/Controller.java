@@ -1,14 +1,8 @@
 package com.example.demo;
 
-import java.lang.reflect.Array;
 import java.net.http.HttpHeaders;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;

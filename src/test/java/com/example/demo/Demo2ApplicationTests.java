@@ -27,7 +27,7 @@ class Demo2ApplicationTests {
 	@Test
 	void check3() throws IOException, CertificateEncodingException {
 		Controller contr = new Controller();
-		assertEquals(HttpStatus.OK, contr.getcommits();
+		assertEquals(HttpStatus.OK, contr.getcommits());
 	}
 
 }

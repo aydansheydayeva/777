@@ -2,11 +2,9 @@ package com.example2.demo2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -17,8 +15,6 @@ import javax.net.ssl.HttpsURLConnection;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import ch.qos.logback.core.encoder.Encoder;
 
 @SpringBootTest
 class Demo2ApplicationTests {

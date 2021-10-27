@@ -1,0 +1,4 @@
+.gradle
+check_for_gitignore
+# Ignore Gradle build output directory
+build

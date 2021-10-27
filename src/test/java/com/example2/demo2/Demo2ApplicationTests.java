@@ -9,9 +9,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.security.cert.CertificateEncodingException;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.util.Base64;
 
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLPeerUnverifiedException;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,7 +24,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class Demo2ApplicationTests {
 
 	@Test
-	void check1() throws IOException, CertificateEncodingException {
+	void check1() throws IOException , CertificateException{
 		String url = "https://60a21d3f745cd70017576092.mockapi.io/api/v1/repos";
 		URL https_url = new URL(url);
         HttpsURLConnection con = (HttpsURLConnection) https_url.openConnection();
@@ -31,28 +35,11 @@ class Demo2ApplicationTests {
 		String crt1 = Base64.getEncoder().encodeToString(cert.getEncoded());
 		String crt2 = "";
 
+        CertificateFactory fac = CertificateFactory.getInstance("X509");
+        FileInputStream is = new FileInputStream("crt.cer");
+        X509Certificate certif = (X509Certificate) fac.generateCertificate(is);
+        crt2 = Base64.getEncoder().encodeToString(certif.getEncoded());
 
-		URL urll = getClass().getResource("crt.cer");
-		File file = new File(urll.getPath());
-
- 
-        try (InputStream inputStream = new FileInputStream(file)) {
- 
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] buffer = new byte[65535];
-            int numberOfReadBytes;
- 
-            while ((numberOfReadBytes = inputStream.read(buffer)) > 0) {
-                byteArrayOutputStream.write(buffer, 0, numberOfReadBytes);
-            }
- 
-            byte[] certificateInBytes = byteArrayOutputStream.toByteArray();
- 
-            java.util.Base64.Encoder encoder = Base64.getEncoder();
-            byte[] encodedBytes = encoder.encode(certificateInBytes);
-            String base64EncodedString = new String(encodedBytes);
-			crt2 = base64EncodedString;
-        }
 		assertEquals(crt1, crt2);
 	}
 

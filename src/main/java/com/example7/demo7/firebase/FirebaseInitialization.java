@@ -1,5 +1,6 @@
 package com.example7.demo7.firebase;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -17,11 +18,9 @@ public class FirebaseInitialization {
     @PostConstruct
     public void initialization() throws IOException{
 
-        FileInputStream serviceAccount =
-        new FileInputStream("./serviceAccountKey.json");
-
         FirebaseOptions options = new FirebaseOptions.Builder()
-        .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+        .setCredentials(GoogleCredentials.fromStream(new ByteArrayInputStream(System.getenv("FIREBASE_CREDENTIALS").getBytes())))
+        .setDatabaseUrl("https://demo7.firebaseio.com")
         .build();
 
         FirebaseApp.initializeApp(options);

@@ -22,15 +22,15 @@ class Demo7ApplicationTests {
         String url = "http://localhost:8080/api/users";
         RestTemplate restTemplate = new RestTemplate();
 		Map<String, String> map = new HashMap<>();
-		map.put("username", "final32");
-		map.put("password", "final333712!");
+		map.put("username", "aydan");
+		map.put("password", "aydan1234567!!!");
 
         ResponseEntity<Void> response = restTemplate.postForEntity(url, map, Void.class);
 
 		System.out.println("Request Successful");
 
 
-		String url2 = "http://localhost:8080/api/users/final32";
+		String url2 = "http://localhost:8080/api/users/aydan";
 		HttpHeaders headers2 = HttpHeaders();
 		HttpEntity<Object> entity2 = new HttpEntity<Object>(headers2);
 		ResponseEntity<String> out2 = restTemplate.exchange(url2, HttpMethod.GET, entity2, String.class);

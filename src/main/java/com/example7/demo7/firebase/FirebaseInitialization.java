@@ -18,7 +18,6 @@ public class FirebaseInitialization {
     @PostConstruct
     public void initialize() {
         try {
-
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(new ByteArrayInputStream(System.getenv("FIREBASE_CREDENTIALS").getBytes())))
                     .setDatabaseUrl("https://demo7.firebaseio.com")

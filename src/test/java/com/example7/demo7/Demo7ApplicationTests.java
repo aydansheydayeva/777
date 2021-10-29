@@ -25,7 +25,7 @@ class Demo7ApplicationTests {
 		User usr = new User("aydan", "aydan1234567!!!");
         HttpEntity<User> newInsertUser = new HttpEntity<User>(usr);
 
-        restTemplate.postForObject(url, newInsertUser, Void.class);
+        restTemplate.postForObject(url, newInsertUser, String.class);
 
 		System.out.println("Request Successful");
 

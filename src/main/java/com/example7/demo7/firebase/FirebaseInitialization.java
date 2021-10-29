@@ -12,6 +12,7 @@ import com.google.firebase.FirebaseOptions;
 
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class FirebaseInitialization {
 
@@ -20,7 +21,7 @@ public class FirebaseInitialization {
         try {
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(new ByteArrayInputStream(System.getenv("FIREBASE_CREDENTIALS").getBytes())))
-                    .setDatabaseUrl("https://demo7.firebaseio.com")
+                    .setDatabaseUrl("https://demo7-7e443.firebaseio.com")
                     .build();
 
             FirebaseApp.initializeApp(options);
@@ -30,3 +31,23 @@ public class FirebaseInitialization {
 
     }
 }
+/*
+
+@Service
+public class FirebaseInitialization {
+
+    @PostConstruct
+    public void initialization() throws IOException{
+
+        FileInputStream serviceAccount =
+        new FileInputStream("./serviceAccountKey.json");
+
+        FirebaseOptions options = new FirebaseOptions.Builder()
+        .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+        .build();
+
+        FirebaseApp.initializeApp(options);
+
+    }
+    
+}*/

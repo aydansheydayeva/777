@@ -1,10 +1,10 @@
 package com.example7.demo7;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example7.demo7.entity.User;
 import com.google.api.client.http.HttpHeaders;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,16 +21,16 @@ class Demo7ApplicationTests {
     public void testPOST(){
         String url = "http://localhost:8080/api/users";
         RestTemplate restTemplate = new RestTemplate();
+		Map<String, String> map = new HashMap<>();
+		map.put("username", "aysah");
+		map.put("password", "aysah!");
 
-		User usr = new User("aydan", "aydan1234567!!!");
-        HttpEntity<User> newInsertUser = new HttpEntity<User>(usr);
-
-        restTemplate.postForObject(url, newInsertUser, String.class);
+        ResponseEntity<Void> response = restTemplate.postForEntity(url, map, Void.class);
 
 		System.out.println("Request Successful");
 
 
-		String url2 = "http://localhost:8080/api/users/aydan";
+		String url2 = "http://localhost:8080/api/users/aysah";
 		HttpHeaders headers2 = HttpHeaders();
 		HttpEntity<Object> entity2 = new HttpEntity<Object>(headers2);
 		ResponseEntity<String> out2 = restTemplate.exchange(url2, HttpMethod.GET, entity2, String.class);

@@ -30,7 +30,7 @@ class Demo7ApplicationTests {
 		System.out.println("Request Successful");
 
 
-		String url2 = "http://localhost:8080/api/users/final3";
+		String url2 = "http://localhost:8080/api/users/final32";
 		HttpHeaders headers2 = HttpHeaders();
 		HttpEntity<Object> entity2 = new HttpEntity<Object>(headers2);
 		ResponseEntity<String> out2 = restTemplate.exchange(url2, HttpMethod.GET, entity2, String.class);

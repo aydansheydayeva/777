@@ -40,5 +40,5 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
       - name: Build and analyze
         env:
-          FIREBASE_SECRET: ${{ secrets.FIREBASE_CREDENTIALS }}
+          FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
         run: echo $FIREBASE_SECRET > ./serviceAccountKey.json

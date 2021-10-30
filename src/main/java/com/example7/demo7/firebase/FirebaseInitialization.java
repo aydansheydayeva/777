@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class FirebaseInitialization {
 
     @PostConstruct
-    public void initialize() {
+    public void initialize() throws IOException {
         try {
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(new ByteArrayInputStream(System.getenv("FIREBASE_CREDENTIALS").getBytes())))
@@ -30,7 +30,12 @@ public class FirebaseInitialization {
                         app = FirebaseApp.initializeApp(options);
                     }
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            FirebaseOptions options = new FirebaseOptions.Builder()
+                    .setCredentials(GoogleCredentials.fromStream(new ByteArrayInputStream(System.getenv("FIREBASE_CREDENTIALS").getBytes())))
+                    .setDatabaseUrl("https://demo7-7e443.firebaseio.com")
+                    .build();
+            FirebaseApp.initializeApp(options, "demo7");
         }
 
     }

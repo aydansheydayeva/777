@@ -40,7 +40,5 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
-        run: ./gradlew clean build --info
+          FIREBASE_SECRET: ${{ secrets.FIREBASE_CREDENTIALS }}
+        run: echo $FIREBASE_SECRET > ./serviceAccountKey.json

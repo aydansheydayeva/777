@@ -23,19 +23,13 @@ public class FirebaseInitialization {
                     .setDatabaseUrl("https://demo7-7e443.firebaseio.com")
                     .build();
 
-                    FirebaseApp app = null;
-                    if(FirebaseApp.getApps().isEmpty()) {
-                        app = FirebaseApp.initializeApp(options, "demo7");
-                    }else {
-                        app = FirebaseApp.initializeApp(options);
+                    if (FirebaseApp.getApps().isEmpty()) {
+                        FirebaseApp.initializeApp(options, "demo7");
+                    } else {
+                        FirebaseApp.getApps().get(0);
                     }
         } catch (Exception e) {
-            //e.printStackTrace();
-            FirebaseOptions options = new FirebaseOptions.Builder()
-                    .setCredentials(GoogleCredentials.fromStream(new ByteArrayInputStream(System.getenv("FIREBASE_CREDENTIALS").getBytes())))
-                    .setDatabaseUrl("https://demo7-7e443.firebaseio.com")
-                    .build();
-            FirebaseApp.initializeApp(options, "demo7");
+            e.printStackTrace();
         }
 
     }

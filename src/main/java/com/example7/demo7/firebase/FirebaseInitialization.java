@@ -17,21 +17,17 @@ public class FirebaseInitialization {
 
     @PostConstruct
     public void initialize() throws IOException {
-        try {
+        try {            
             FirebaseOptions options = new FirebaseOptions.Builder()
-                    .setCredentials(GoogleCredentials.fromStream(new ByteArrayInputStream(System.getenv("FIREBASE_CREDENTIALS").getBytes())))
-                    .setDatabaseUrl("https://demo7-7e443.firebaseio.com")
-                    .build();
-
-                    if (FirebaseApp.getApps().isEmpty()) {
-                        FirebaseApp.initializeApp(options, "demo7");
-                    } else {
-                        FirebaseApp.getApps().get(0);
-                    }
+            .setCredentials(GoogleCredentials.fromStream(new ByteArrayInputStream(System.getenv("FIREBASE_CREDENTIALS").getBytes())))
+            .setDatabaseUrl("https://demo7.firebaseio.com")
+            .build();
+            
+            FirebaseApp.initializeApp(options);
+        
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
 

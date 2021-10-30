@@ -23,9 +23,12 @@ public class FirebaseInitialization {
                     .setDatabaseUrl("https://demo7-7e443.firebaseio.com")
                     .build();
 
-            if(FirebaseApp.getApps().isEmpty()) { //<------- Here
-                FirebaseApp.initializeApp(options);
-            }
+                    FirebaseApp app = null;
+                    if(FirebaseApp.getApps().isEmpty()) {
+                        app = FirebaseApp.initializeApp(options, "demo7");
+                    }else {
+                        app = FirebaseApp.initializeApp(options);
+                    }
         } catch (Exception e) {
             e.printStackTrace();
         }

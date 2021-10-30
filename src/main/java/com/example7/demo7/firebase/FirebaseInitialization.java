@@ -29,8 +29,8 @@ public class FirebaseInitialization {
         }
 
     }
-}
-*/
+}*/
+
 
 @Service
 public class FirebaseInitialization {

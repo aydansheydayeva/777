@@ -12,6 +12,7 @@ import com.google.firebase.FirebaseOptions;
 
 import org.springframework.stereotype.Service;
 
+/*
 @Service
 public class FirebaseInitialization {
 
@@ -29,9 +30,8 @@ public class FirebaseInitialization {
             e.printStackTrace();
         }
     }
-}
+}*/
 
-/*
 @Service
 public class FirebaseInitialization {
 
@@ -48,5 +48,5 @@ public class FirebaseInitialization {
         FirebaseApp.initializeApp(options);
 
     }
-    
-}*/
+   
+}

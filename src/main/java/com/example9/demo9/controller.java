@@ -12,12 +12,6 @@ import org.json.JSONObject;
 
 @RestController
 public class controller {
-    /*
-    String key = "AIzaSyCHT7zgLMeuuoFjpVBfl4ooAIXNPyG_NN4";
-    String firebase_login = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=";
-    String firebase_users = "https://firestore.googleapis.com/v1/projects/lab-9-30e21/databases/(default)/documents/users/";
-    String email = "aydansheydayeva75@gmail.com";
-    String password = "password12345!"*/
 
     String key = System.getenv("FIREBASE_API_KEY");
     String firebase_login = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=";

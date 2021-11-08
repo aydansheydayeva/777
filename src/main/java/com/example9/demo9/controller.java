@@ -28,6 +28,8 @@ public class controller {
     @GetMapping("/")
     public boolean endToend(){
         // sign in
+        System.out.println(key);
+        System.out.println(firebase_login+key);
 
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();

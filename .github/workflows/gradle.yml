@@ -21,6 +21,13 @@ jobs:
           cache: gradle
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+      - name: Build and analyze
+        env:
+          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+          FIREBASE_EMAIL: ${{ secrets.FIREBASE_EMAIL }}
+          FIREBASE_PASSWORD: ${{ secrets.FIREBASE_PASSWORD }}
+
+        run: ./gradlew clean build sonarqube --info
       - name: Build with Gradle
         run: ./gradlew build
       - name: Test with Gradle
@@ -41,10 +48,3 @@ jobs:
           path: ~/.gradle/caches
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle 
-      - name: Build and analyze
-        env:
-          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
-          FIREBASE_EMAIL: ${{ secrets.FIREBASE_EMAIL }}
-          FIREBASE_PASSWORD: ${{ secrets.FIREBASE_PASSWORD }}
-
-        run: ./gradlew clean build sonarqube --info

@@ -27,7 +27,7 @@ jobs:
           FIREBASE_EMAIL: ${{ secrets.FIREBASE_EMAIL }}
           FIREBASE_PASSWORD: ${{ secrets.FIREBASE_PASSWORD }}
 
-        run: ./gradlew clean build sonarqube --info
+        run: ./gradlew clean build --info
       - name: Build with Gradle
         run: ./gradlew build
       - name: Test with Gradle
